@@ -15,3 +15,7 @@ func TestOutputIsRight(t *testing.T) {
 		t.Fatalf("Getting unexpected result. Not expected %s but got it.", notExpected)
 	}
 }
+
+func TestMain(t *testing.T) {
+	main()
+}
