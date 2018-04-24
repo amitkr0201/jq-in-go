@@ -1,0 +1,14 @@
+version: 2
+jobs:
+  build:
+    docker:
+      # CircleCI Go images available at: https://hub.docker.com/r/circleci/golang/
+      - image: circleci/golang:1.10
+    
+    working_directory: /go/src/github.com/amitkr0201/jq-in-go
+
+    steps:
+      - checkout
+      - run: echo "Started CI...!"
+      - run: go test -timeout 90s -race -coverprofile=coverage.txt -covermode=atomic
+      - run: bash <(curl -s https://codecov.io/bash) || echo "push to codecov failed"
