@@ -10,3 +10,4 @@ jobs:
     steps:
       - checkout
       - run: echo "Started CI...!"
+      - run: go test -timeout 90s
