@@ -1,18 +1,38 @@
 package jq
 
-import "testing"
+import (
+	"testing"
+)
 
-func TestValidJSON(t *testing.T) {
-	input := `{"test":"yes"}`
-	valid := IsJSONValid(input)
-	if !valid {
-		t.Fatalf("Failed test to check JSON validity.")
+func TestIsJSONValid(t *testing.T) {
+	type args struct {
+		input string
 	}
-}
-func TestInvalidJSON(t *testing.T) {
-	input := `{"test":"yes",}`
-	valid := IsJSONValid(input)
-	if valid {
-		t.Fatalf("Failed test to check JSON validity.")
+	tests := []struct {
+		name    string
+		args    args
+		wantErr bool
+	}{
+		{
+			name: "Fail",
+			args: args{
+				input: "",
+			},
+			wantErr: true,
+		},
+		{
+			name: "Pass",
+			args: args{
+				input: `{"Test1":true,"Test2":"Yes"}`,
+			},
+			wantErr: false,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if err := IsJSONValid(tt.args.input); (err != nil) != tt.wantErr {
+				t.Errorf("IsJSONValid() error = %v, wantErr %v", err, tt.wantErr)
+			}
+		})
 	}
 }
