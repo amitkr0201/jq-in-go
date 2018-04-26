@@ -9,6 +9,6 @@ jobs:
 
     steps:
       - checkout
-      - run: echo "Started CI...!"
+      - run: go get -u github.com/spf13/cobra/cobra
       - run: go test -timeout 90s -race -coverprofile=coverage.txt -covermode=atomic ./...
       - run: bash <(curl -s https://codecov.io/bash) || echo "push to codecov failed"
