@@ -104,34 +104,19 @@ func Test_printOutput(t *testing.T) {
 		input []byte
 	}
 	tests := []struct {
-		name    string
-		args    args
-		wantErr bool
+		name string
+		args args
 	}{
-		// Can't easily fail this
 		{
-			name:    "Test non compact JSON",
-			wantErr: false,
+			name: "Fake test",
 			args: args{
-				input: []byte(`{
-  "Test1": true,
-  "Test2": "Yes"
-}`),
-			},
-		},
-		{
-			name:    "Test compact JSON",
-			wantErr: false,
-			args: args{
-				input: []byte(`{"Test1": true,"Test2": "Yes"}`),
+				input: []byte(`{"Test1":true,"Test2":"Yes"}`),
 			},
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if err := printOutput(tt.args.input); (err != nil) != tt.wantErr {
-				t.Errorf("printOutput() error = %v, wantErr %v", err, tt.wantErr)
-			}
+			printOutput(tt.args.input)
 		})
 	}
 }
