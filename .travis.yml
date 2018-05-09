@@ -1,7 +1,13 @@
 language: go
+
 go:
   - "1.10.x"
-install: go get -u github.com/spf13/cobra/cobra
-script: go test -timeout 90s -race -coverprofile=coverage.txt -covermode=atomic ./...
+
 git:
-  depth: false
+  depth: 1
+ 
+before_install: go get -u github.com/spf13/cobra/cobra
+
+script: go test -timeout 90s -race -coverprofile=coverage.txt -covermode=atomic ./...
+
+after_success: bash <(curl -s https://codecov.io/bash)
