@@ -1,4 +1,6 @@
 language: go
+go:
+  - "1.10.x"
 install: go get -u github.com/spf13/cobra/cobra
 script: go test -timeout 90s -race -coverprofile=coverage.txt -covermode=atomic ./...
 git:
