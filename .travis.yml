@@ -1,0 +1,5 @@
+language: go
+install: go get -u github.com/spf13/cobra/cobra
+script: go test -timeout 90s -race -coverprofile=coverage.txt -covermode=atomic ./...
+git:
+  depth: false
