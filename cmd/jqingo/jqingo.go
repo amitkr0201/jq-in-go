@@ -25,38 +25,46 @@ func printOutput(input []byte) {
 }
 
 func formatOutput(compact bool, input string) (output []byte, err error) {
-	var f interface{}
 	output = []byte{}
+
+	// If compact flag is on
+	if compact {
+		output, err = compactOutput(input)
+		return
+	}
+
+	var f interface{}
 
 	// Read as data
 	if err = json.Unmarshal([]byte(input), &f); err != nil {
 		return
 	}
 
-	// If compact flag is on
-	if compact {
-		var c []byte
+	// MarshalIndent can't throw error because
+	// f is a proper JSON from Unmarshal earlier
+	output, _ = json.MarshalIndent(f, "", "  ")
 
-		c, err = json.Marshal(f)
-		if err != nil {
-			return
-		}
-		os.Stdout.Write(c)
-		buffer := new(bytes.Buffer)
+	return
+}
 
-		if err = json.Compact(buffer, c); err != nil {
-			return
-		}
+func compactOutput(input string) (output []byte, err error) {
+	var f interface{}
+	var c []byte
 
-		output = buffer.Bytes()
-		os.Stdout.Write(output)
+	// Read as data
+	if err = json.Unmarshal([]byte(input), &f); err != nil {
 		return
 	}
 
-	// Get pretty-printed string
-	if output, err = json.MarshalIndent(f, "", "  "); err != nil {
-		return
-	}
+	// Marshal can't throw error because
+	// f is a proper JSON from Unmarshal earlier
+	c, _ = json.Marshal(f)
 
+	buffer := new(bytes.Buffer)
+
+	// c is proper JSON from Marshal above
+	_ = json.Compact(buffer, c)
+
+	output = buffer.Bytes()
 	return
 }
