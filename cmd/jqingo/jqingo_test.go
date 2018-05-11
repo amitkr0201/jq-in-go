@@ -73,7 +73,7 @@ func Test_formatOutput(t *testing.T) {
 			wantErr: false,
 		},
 		{
-			name: "Print compact  JSON",
+			name: "Print compact JSON",
 			args: args{
 				input: `{
   "Test1": true,
@@ -117,6 +117,53 @@ func Test_printOutput(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			printOutput(tt.args.input)
+		})
+	}
+}
+
+func Test_compactOutput(t *testing.T) {
+	type args struct {
+		input string
+	}
+	tests := []struct {
+		name       string
+		args       args
+		wantOutput []byte
+		wantErr    bool
+	}{
+		{
+			name: "Print compact JSON",
+			args: args{
+				input: `{
+  "Test1": true,
+  "Test2": "Yes"
+				  }`,
+			},
+			wantOutput: []byte(`{"Test1":true,"Test2":"Yes"}`),
+			wantErr:    false,
+		},
+		{
+			name: "Fail with invalid JSON",
+			args: args{
+				input: `{
+  "Test1": true,
+  "Test2": "Yes
+				  }`,
+			},
+			wantOutput: nil,
+			wantErr:    true,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			gotOutput, err := compactOutput(tt.args.input)
+			if (err != nil) != tt.wantErr {
+				t.Errorf("compactOutput() error = %v, wantErr %v", err, tt.wantErr)
+				return
+			}
+			if !reflect.DeepEqual(gotOutput, tt.wantOutput) {
+				t.Errorf("compactOutput() = %v, want %v", gotOutput, tt.wantOutput)
+			}
 		})
 	}
 }
