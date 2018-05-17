@@ -18,7 +18,7 @@ func TestProcessCommand(t *testing.T) {
 		{
 			name: "Passing non compact JSON",
 			args: args{
-				args:    []string{`{"Test1":true,"Test2":"Yes"}`},
+				args:    []string{`.`, `{"Test1":true,"Test2":"Yes"}`},
 				compact: false,
 			},
 			wantErr: false,
@@ -26,7 +26,7 @@ func TestProcessCommand(t *testing.T) {
 		{
 			name: "Passing print compact JSON",
 			args: args{
-				args:    []string{`{"Test1": true,"Test2": "Yes"}`},
+				args:    []string{`.`, `{"Test1": true,"Test2": "Yes"}`},
 				compact: true,
 			},
 			wantErr: false,
@@ -34,7 +34,7 @@ func TestProcessCommand(t *testing.T) {
 		{
 			name: "Failing JSON",
 			args: args{
-				args:    []string{`{"Test1": true,"Test2": "Yes",}`},
+				args:    []string{`.`, `{"Test1": true,"Test2": "Yes",}`},
 				compact: false,
 			},
 			wantErr: true,
