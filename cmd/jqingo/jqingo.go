@@ -8,9 +8,12 @@ import (
 
 // ProcessCommand takes all arguments from the command line and does work accordingly
 func ProcessCommand(compact bool, args []string) (err error) {
-	input := args[0]
+	selector := args[0]
+	input := args[1]
 
-	output, err := formatOutput(compact, input)
+	selectedJSON, err := getSelectedJSON(selector, input)
+
+	output, err := formatOutput(compact, selectedJSON)
 	if err != nil {
 		return
 	}
