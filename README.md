@@ -4,6 +4,8 @@ A command line JSON processor in Go. Trying to replicate [stedolan/jq](https://g
 
 [![CircleCI](https://circleci.com/gh/amitkr0201/jq-in-go.svg?style=svg)](https://circleci.com/gh/amitkr0201/jq-in-go) [![Build Status](https://travis-ci.com/amitkr0201/jq-in-go.svg?branch=master)](https://travis-ci.com/amitkr0201/jq-in-go) [![codecov](https://codecov.io/gh/amitkr0201/jq-in-go/branch/master/graph/badge.svg)](https://codecov.io/gh/amitkr0201/jq-in-go) [![BCH compliance](https://bettercodehub.com/edge/badge/amitkr0201/jq-in-go?branch=master)](https://bettercodehub.com/) [![CodeFactor](https://www.codefactor.io/repository/github/amitkr0201/jq-in-go/badge)](https://www.codefactor.io/repository/github/amitkr0201/jq-in-go) [![Go Report Card](https://goreportcard.com/badge/github.com/amitkr0201/jq-in-go)](https://goreportcard.com/report/github.com/amitkr0201/jq-in-go)
 
+[![](https://images.microbadger.com/badges/image/aku105/jq-in-go.svg)](https://microbadger.com/images/aku105/jq-in-go "Get your own image badge on microbadger.com")[![](https://images.microbadger.com/badges/version/aku105/jq-in-go.svg)](https://microbadger.com/images/aku105/jq-in-go "Get your own version badge on microbadger.com")
+
 ## Usage
 
 ```sh
