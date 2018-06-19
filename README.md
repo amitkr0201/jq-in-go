@@ -2,7 +2,11 @@
 
 A command line JSON processor in Go. Trying to replicate [stedolan/jq](https://github.com/stedolan/jq) in Go and learning along.
 
-[![CircleCI](https://circleci.com/gh/amitkr0201/jq-in-go.svg?style=svg)](https://circleci.com/gh/amitkr0201/jq-in-go) [![Build Status](https://travis-ci.com/amitkr0201/jq-in-go.svg?branch=master)](https://travis-ci.com/amitkr0201/jq-in-go) [![codecov](https://codecov.io/gh/amitkr0201/jq-in-go/branch/master/graph/badge.svg)](https://codecov.io/gh/amitkr0201/jq-in-go) [![BCH compliance](https://bettercodehub.com/edge/badge/amitkr0201/jq-in-go?branch=master)](https://bettercodehub.com/) [![CodeFactor](https://www.codefactor.io/repository/github/amitkr0201/jq-in-go/badge)](https://www.codefactor.io/repository/github/amitkr0201/jq-in-go) [![Go Report Card](https://goreportcard.com/badge/github.com/amitkr0201/jq-in-go)](https://goreportcard.com/report/github.com/amitkr0201/jq-in-go)
+|[]()| |
+|---|---|
+|**BUILDS:**| [![CircleCI](https://circleci.com/gh/amitkr0201/jq-in-go.svg?style=svg)](https://circleci.com/gh/amitkr0201/jq-in-go) [![Build Status](https://travis-ci.com/amitkr0201/jq-in-go.svg?branch=master)](https://travis-ci.com/amitkr0201/jq-in-go)|
+|**Code Mertics:** |[![codecov](https://codecov.io/gh/amitkr0201/jq-in-go/branch/master/graph/badge.svg)](https://codecov.io/gh/amitkr0201/jq-in-go) [![BCH compliance](https://bettercodehub.com/edge/badge/amitkr0201/jq-in-go?branch=master)](https://bettercodehub.com/) [![CodeFactor](https://www.codefactor.io/repository/github/amitkr0201/jq-in-go/badge)](https://www.codefactor.io/repository/github/amitkr0201/jq-in-go) [![Go Report Card](https://goreportcard.com/badge/github.com/amitkr0201/jq-in-go)](https://goreportcard.com/report/github.com/amitkr0201/jq-in-go)
+|**Docker Metrics:**| [![](https://images.microbadger.com/badges/image/aku105/jq-in-go.svg)](https://microbadger.com/images/aku105/jq-in-go) [![](https://images.microbadger.com/badges/version/aku105/jq-in-go.svg)](https://microbadger.com/images/aku105/jq-in-go)|
 
 ## Usage
 
