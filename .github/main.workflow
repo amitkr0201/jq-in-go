@@ -5,7 +5,11 @@ workflow "New workflow" {
 
 action "Docker Registry" {
   uses = "actions/docker/login@76ff57a"
-  secrets = ["GITHUB_TOKEN"]
+  secrets = [
+    "GITHUB_TOKEN",
+    "DOCKER_USERNAME",
+    "DOCKER_PASSWORD",
+  ]
 }
 
 action "Docker Tag" {
