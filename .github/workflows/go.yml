@@ -26,3 +26,12 @@ jobs:
 
     - name: Build
       run: go build -v .
+
+  push:
+    name: Push artifacts
+    runs-on: ubuntu-latest
+    steps:
+    - name: Build docker image
+      run: docker build -t docker.pkg.github.com/aku105/jq-in-go/app:1.0 .
+    - name: Push docker image
+      run: docker push docker.pkg.github.com/aku105/jq-in-go/app:1.0
