@@ -37,7 +37,7 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN_DOCKER }}
         image-name: docker.pkg.github.com/aku105/jq-in-go/app
-        extract-git-tag: true 
+        image-tag:: 1.0 
         
 #       run: docker build -t docker.pkg.github.com/aku105/jq-in-go/app:1.0 .
 #     - name: Push docker image
