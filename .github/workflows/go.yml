@@ -35,7 +35,7 @@ jobs:
     - name: Build and push docker image
       uses: VaultVulp/gp-docker-action@1.0.1
       with:
-#         github-token: ''
+        github-token: ${{ secrets.GITHUB_TOKEN_DOCKER }}
         image-name: docker.pkg.github.com/aku105/jq-in-go/app
         extract-git-tag: true 
         
