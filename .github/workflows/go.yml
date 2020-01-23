@@ -29,6 +29,7 @@ jobs:
 
   push:
     name: Push artifacts
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
     - name: Build docker image
