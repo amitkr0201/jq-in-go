@@ -32,7 +32,13 @@ jobs:
     needs: [build]
     runs-on: ubuntu-latest
     steps:
-    - name: Build docker image
-      run: docker build -t docker.pkg.github.com/aku105/jq-in-go/app:1.0 .
-    - name: Push docker image
-      run: docker push docker.pkg.github.com/aku105/jq-in-go/app:1.0
+    - name: Build and push docker image
+      uses: VaultVulp/gp-docker-action@1.0.1
+      with:
+#         github-token: ''
+        image-name: docker.pkg.github.com/aku105/jq-in-go/app
+        extract-git-tag: true 
+        
+#       run: docker build -t docker.pkg.github.com/aku105/jq-in-go/app:1.0 .
+#     - name: Push docker image
+#       run: docker push docker.pkg.github.com/aku105/jq-in-go/app:1.0
