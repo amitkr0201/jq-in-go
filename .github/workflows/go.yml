@@ -29,9 +29,20 @@ jobs:
 
   push:
     name: Push artifacts
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
-    - name: Build docker image
-      run: docker build -t docker.pkg.github.com/aku105/jq-in-go/app:1.0 .
-    - name: Push docker image
-      run: docker push docker.pkg.github.com/aku105/jq-in-go/app:1.0
+    - name: Check out code
+      uses: actions/checkout@v1
+    - name: Build and push docker image
+#       uses: VaultVulp/gp-docker-action@1.0.1
+#       with:
+#         github-token: ${{ secrets.GITHUB_TOKEN_DOCKER }}
+#         image-name: docker.pkg.github.com/aku105/jq-in-go/app
+#         image-tag: 1.0
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: amitkr0201/jq-in-go/app
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN_DOCKER }}
+        registry: docker.pkg.github.com
