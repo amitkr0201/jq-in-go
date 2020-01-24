@@ -38,6 +38,9 @@ jobs:
 #         github-token: ${{ secrets.GITHUB_TOKEN_DOCKER }}
 #         image-name: docker.pkg.github.com/aku105/jq-in-go/app
 #         image-tag: 1.0
-      uses: buildtool/build-action@v1
+      uses: HurricanKai/Publish-Docker-Github-Action@master
       with:
-        dockerfile: Dockerfile
+        name: amitkr0201/jq-in-go/app
+        username: amitkr0201
+        password: ${{ secrets.GITHUB_TOKEN_DOCKER }}
+        registry: docker.pkg.github.com
