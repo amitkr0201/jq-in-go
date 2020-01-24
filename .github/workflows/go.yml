@@ -33,12 +33,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Build and push docker image
-      uses: VaultVulp/gp-docker-action@1.0.1
+#       uses: VaultVulp/gp-docker-action@1.0.1
+#       with:
+#         github-token: ${{ secrets.GITHUB_TOKEN_DOCKER }}
+#         image-name: docker.pkg.github.com/aku105/jq-in-go/app
+#         image-tag: 1.0
+      uses: buildtool/build-action@v1
       with:
-        github-token: ${{ secrets.GITHUB_TOKEN_DOCKER }}
-        image-name: docker.pkg.github.com/aku105/jq-in-go/app
-        image-tag:: 1.0 
-        
-#       run: docker build -t docker.pkg.github.com/aku105/jq-in-go/app:1.0 .
-#     - name: Push docker image
-#       run: docker push docker.pkg.github.com/aku105/jq-in-go/app:1.0
+        dockerfile: Dockerfile
