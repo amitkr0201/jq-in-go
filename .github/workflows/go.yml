@@ -35,14 +35,9 @@ jobs:
     - name: Check out code
       uses: actions/checkout@v1
     - name: Build and push docker image
-#       uses: VaultVulp/gp-docker-action@1.0.1
-#       with:
-#         github-token: ${{ secrets.GITHUB_TOKEN_DOCKER }}
-#         image-name: docker.pkg.github.com/aku105/jq-in-go/app
-#         image-tag: 1.0
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: amitkr0201/jq-in-go/app
+        name: amitkr0201/jq-in-go/goq
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN_DOCKER }}
         registry: docker.pkg.github.com
